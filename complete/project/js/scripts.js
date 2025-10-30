@@ -542,7 +542,7 @@ $(document).ready(function () {
 
 /* ===============================  Mouse effect  =============================== */
 
-function mousecursor() {
+/*function mousecursor() {
     if ($("body")) {
         const e = document.querySelector(".cursor-inner"),
             t = document.querySelector(".cursor-outer");
@@ -560,13 +560,52 @@ function mousecursor() {
 
 $(function () {
     mousecursor();
-});
+}); */
+document.addEventListener("DOMContentLoaded", () => {
+    function mousecursor() {
+      const e = document.querySelector(".cursor-inner"),
+            t = document.querySelector(".cursor-outer");
+  
+      if (!e || !t) {
+        console.warn("Cursor elements not found — skipping mouse effect.");
+        return;
+      }
+  
+      let n, i = 0, o = !1;
+  
+      window.onmousemove = function (s) {
+        if (!t || !e) return;
+        if (!o)
+          t.style.transform = `translate(${s.clientX}px, ${s.clientY}px)`;
+        e.style.transform = `translate(${s.clientX}px, ${s.clientY}px)`;
+        n = s.clientY;
+        i = s.clientX;
+      };
+  
+      $("body")
+        .on("mouseenter", "a, .cursor-pointer", function () {
+          e.classList.add("cursor-hover");
+          t.classList.add("cursor-hover");
+        })
+        .on("mouseleave", "a, .cursor-pointer", function () {
+          $(this).is("a") && $(this).closest(".cursor-pointer").length ||
+            (e.classList.remove("cursor-hover"),
+             t.classList.remove("cursor-hover"));
+        });
+  
+      e.style.visibility = "visible";
+      t.style.visibility = "visible";
+    }
+  
+    mousecursor();
+  });
+  
 
 
 // Include EmailJS SDK first
 // <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-emailjs.init("YOUR_PUBLIC_KEY"); // from EmailJS dashboard
+/*emailjs.init("YOUR_PUBLIC_KEY"); // from EmailJS dashboard
 
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -581,5 +620,18 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
         alert("Failed to send message: " + error.text);
       }
     );
-});
+}); */
 
+// partners logo-section
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector('.carousel-track');
+    if (!track) {
+      console.warn("Carousel track not found.");
+      return;
+    }
+  
+    const logos = track.innerHTML;
+    track.innerHTML += logos; // Duplicate content for infinite scroll
+  });
+  

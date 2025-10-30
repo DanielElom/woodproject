@@ -142,7 +142,7 @@ a, span {
   color: #b19777;
 }
 .bg-gray {
-  background-color: #ede6e6; }
+  background-color: rgb(91, 68, 105); }
   .bg-gray .primery-shadow {
     -webkit-box-shadow: 0px 4px 30px -4px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 4px 30px -4px rgba(0, 0, 0, 0.2); }
@@ -1875,11 +1875,21 @@ body {
   height: 4px;
 }
 
+/* ====================== [ Start about-text] ====================== */
 
+.about-text{
+color: rgb(21, 237, 21);
+}
+.abt-text{
+  color: rgb(211, 187, 48);
+}
+/* ====================== [ end about-text] ====================== */
 
 /* ====================== [ Start Intro ] ====================== */
 .about {
-  position: relative; }
+  position: relative;
+  background-color:rgb(250, 240, 240) ;
+   }
   .about .exp-img .img {
     width: 90%;
     height: 500px;
@@ -1916,7 +1926,7 @@ body {
       .about .exp-img .img .years h2 {
         font-size: 140px;
         font-weight: 800;
-        background: url(../img/image-2.jpg) no-repeat;
+        background: url(../img/image-5.jpg) no-repeat;
         background-position: 18% 65%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -2201,6 +2211,7 @@ body {
 /* ====================== [ End Numbers & Counter  ] ====================== */
 /* ====================== [ Start Work ] ====================== */
 .portfolio .filtering .filter {
+  
   padding: 15px; }
   .portfolio .filtering .filter.box {
     -webkit-box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
@@ -2230,6 +2241,7 @@ body {
     display: none; }
 
 .portfolio .gallery .items {
+  background-color: rgba(150, 150, 19, 0.96);
   padding: 0 15px; }
   .portfolio .gallery .items .item-img {
     overflow: hidden;
@@ -2248,6 +2260,9 @@ body {
       -webkit-transition: all .5s;
       -o-transition: all .5s;
       transition: all .5s; }
+      .wrk-text{
+        color: white;
+      }
     .portfolio .gallery .items .item-img:after, .portfolio .gallery .items .item-img:before {
       content: '';
       position: absolute;
@@ -2867,6 +2882,8 @@ body {
   .team .item {
     padding: 0 15px; }
     .team .item .img {
+      width: 150px;
+      height: 150px;
       position: relative;
       overflow: hidden; }
       .team .item .img:hover:after {
@@ -3040,7 +3057,7 @@ body {
       color: #fff; }
   .testimonials.grid .navs .next {
     left: auto;
-    right: 0; }
+    right: 40px; }
 
 .testimonials.bg-img .item .cont {
   border-color: rgba(255, 255, 255, 0.15); }
@@ -3059,6 +3076,71 @@ body {
     color: #fff; }
 
 /* ====================== [ End Testimonials ] ====================== */
+
+
+
+/*====================================================================
+		Clients  Logo-Section
+====================================================================
+
+***/
+
+
+.partner-carousel {
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  width: calc(250px * 10); /* Adjust based on number of logos */
+  animation: scroll 20s linear infinite;
+}
+
+.carousel-track img {
+  width: 250px;
+  height: auto;
+  margin: 0 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  
+}
+
+.crousel-track img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+
+
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .logo-track img {
+    width: 150px;
+    margin: 0 20px;
+  }
+}
+
+
+
+/*** 
+
+
+
 /* ====================== [ Start Blog ] ====================== */
 .blog-grid {
 
