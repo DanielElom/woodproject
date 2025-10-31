@@ -2543,7 +2543,12 @@ color: rgb(21, 237, 21);
       z-index: 3; }
 
 /* ====================== [ End services ] ====================== */
+
+
+
 /* ====================== [ Start progress bar ] ====================== */
+  
+
 .skills-circle .skill {
   position: relative; }
   .skills-circle .skill span {
@@ -2589,7 +2594,7 @@ color: rgb(21, 237, 21);
     width: 0;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: #b19777;
     -webkit-transition: all 1.5s;
     -o-transition: all 1.5s;
     transition: all 1.5s; }
@@ -2604,7 +2609,7 @@ color: rgb(21, 237, 21);
       content: '';
       width: 1px;
       height: 30px;
-      background: #333;
+      background: #b19777;
       position: absolute;
       right: 0;
       bottom: 0; }
@@ -2658,6 +2663,8 @@ color: rgb(21, 237, 21);
   color: #b19777; }
   .play-button.color .circle-fill circle {
     fill: rgba(177, 151, 119, 0.2); }
+
+    
 
 /* ====================== [ End progress bar ] ====================== */
 /* ====================== [ Start tabs before & after section ] ====================== */
@@ -4070,7 +4077,7 @@ color: rgb(21, 237, 21);
   }
   
   @media (max-width: 768px) {
-    .container {
+    .containers {
       margin: 40px; /* or whatever value you want */
     }
   }

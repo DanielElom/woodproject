@@ -392,8 +392,6 @@ window.addEventListener('scroll', () => {
             }
         });
     });
-
-
     /* ===============================  blog-grid  =============================== */
 
     var blgImg = $('.blog-grid .post-img .img').outerHeight() + 120;
