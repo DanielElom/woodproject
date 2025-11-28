@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
 
     <!-- Metas -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="keywords" content=" Wood & Steel Medallions Nigeria | Leading Fabrication & Manufacturing Company" />
     <meta name="description" content="a top manufacturing and steel fabrication company in Nigeria. Delivering quality, innovative & affordable residential & commercial fabrication solutions with excellence" />
     <meta name="author" content="" />
@@ -92,7 +92,7 @@
                   
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="index.html#"role="button"
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="index.html#" role="button"
                         aria-haspopup="true" aria-expanded="false">Projects</a>
                        
                         
@@ -105,9 +105,6 @@
                             
 
                         </div>
-                    </li>
-
-
                     </li>
                       
                     <li class="nav-item">
@@ -492,7 +489,7 @@
                     <div class="item text-center">
                         <div class="skill" data-value="0.75">
                             <span class="custom-font">75%</span>
-                            <h6>FURNITURE - MODERN INTERRIOR</h6>
+                            <h6>FURNITURE - MODERN INTERIOR</h6>
                         </div>
                     </div>
                 </div>
@@ -823,7 +820,7 @@
         <div class="container  ">
             <div class="row  d-flex justify-content-center align-items-center">
                 <div class="col-lg-5 col-md-6 contact-form wow fadeInDown" data-wow-delay=".3s">
-                    <form id="contact-form" method="post" action="">
+                    <form id="contact-form" method="" action="">
                         <div class="section-head">
                             <h6 class="custom-font">Contact Us</h6>
                             <h4 class="playfont">Get In Touch</h4>
@@ -834,13 +831,15 @@
                         <div class="controls">
 
                             <div class="form-group">
-                                <input id="form_name" type="text" name="name" placeholder="Name" required="required">
+                                <input id="form_name" type="text" name="from_name" placeholder="Name" required="required">
                             </div>
 
                             <div class="form-group">
-                                <input id="form_email" type="email" name="email" placeholder="Email"
+                                <input id="form_email" type="email" name="from_email" placeholder="Email"
                                     required="required">
                             </div>
+
+                            <input type="hidden" id="form_reply_to" name="reply_to" value="">
 
                             <div class="form-group">
                                 <textarea id="form_message" name="message" placeholder="Message" rows="4"
@@ -869,7 +868,7 @@
                     <div class="item abot">
                         <div class="logo-footer mb-20">
                             <a href="index.html#0" class="logo">
-                                <img src="" style="width: 120px; height: auto;" alt="">
+                                <img src="img/woodmath-trans.png" style="width: 120px; height: auto;" alt="WoodMath logo">
                             </a>
                         </div>
                         <p>We see ourselves as the bridge between residential and commercial needs, providing business structures and solutions that help our clients achieve their goals while maintaining our promise of quality, innovation, and reliability.</p>
@@ -931,7 +930,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="text-left">
-                            <p>© 2025,WoodMath . BUILT by <a href="#">Daniel Elom</a>.</p>
+                            <p>© 2025,WoodMath . BUILT by <a href="#">FixTech</a>.</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -949,6 +948,7 @@
 
 
 
+ 
 
 
     <!-- jQuery -->
@@ -957,6 +957,18 @@
 
     <!-- plugins -->
     <script src="js/plugins.js"></script>
+
+    <!-- Swiper and GSAP -->
+    <script src="https://unpkg.com/swiper@4.5.1/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function() {
+        emailjs.init("XtZ7Acfq37_rjQvzI");
+      })();
+    </script>
 
     <!-- custom scripts -->
     <script src="js/scripts.js"></script>
@@ -968,6 +980,7 @@
     <!-- <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUU5FZiF5WLFFfgIC1n64Zr0zfpQZjBBg&callback=initMap">
         </script> -->
+
 
 </body>
 

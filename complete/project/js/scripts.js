@@ -89,8 +89,11 @@ $(function () {
             prevEl: '.slider .parallax-slider .prev-ctrl'
         }
     };
-    parallaxSlider = new Swiper('.slider .parallax-slider', parallaxSliderOptions);
+    if (typeof Swiper !== 'undefined') {
+        parallaxSlider = new Swiper('.slider .parallax-slider', parallaxSliderOptions);
+    }
 
+    if (typeof Swiper !== 'undefined') {
     var swiperWorkMetro = new Swiper('.metro .swiper-container', {
         slidesPerView: 2,
         spaceBetween: 0,
@@ -123,7 +126,9 @@ $(function () {
             prevEl: '.metro .prev-ctrl'
         },
     });
+    }
 
+    if (typeof Swiper !== 'undefined') {
     var swiperWorkSlider = new Swiper('.slider-scroll .swiper-container', {
         slidesPerView: 2,
         spaceBetween: 30,
@@ -152,6 +157,7 @@ $(function () {
             prevEl: '.slider-scroll .prev-ctrl'
         }
     });
+    }
 
 
     const slider = document.getElementById("js-cta-slider");
@@ -160,6 +166,7 @@ $(function () {
 
     const interleaveOffset = 0.75;
 
+    if (typeof Swiper !== 'undefined' && slider) {
     const swiper = new Swiper(slider, {
     loop: true,
     direction: "vertical",
@@ -187,9 +194,11 @@ $(function () {
         let innerOffset = swiper.height * interleaveOffset;
         let innerTranslate = slideProgress * innerOffset;
 
-        TweenMax.set(swiper.slides[i].querySelector(".slide-inner"), {
-            y: innerTranslate,
-        });
+        if (typeof TweenMax !== 'undefined') {
+            TweenMax.set(swiper.slides[i].querySelector(".slide-inner"), {
+                y: innerTranslate,
+            });
+        }
         }
     },
     touchStart: function() {
@@ -208,6 +217,7 @@ $(function () {
     }
     }
     });
+    }
  /* ===============================  Whatsapp icon  =============================== */
 /*
 
@@ -451,37 +461,66 @@ $(window).on("load", function () {
 
     $('.filtering').on('click', 'span', function () {
         $(this).addClass('active').siblings().removeClass('active');
+
+        
     });
+// email.js 
 
-
-    /* ===============================  contact validator  =============================== */
-
-    $('#contact-form').validator();
-
-    $('#contact-form').on('submit', function (e) {
-        if (!e.isDefaultPrevented()) {
-            var url = "contact.php";
-
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: $(this).serialize(),
-                success: function (data) {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
-
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    if (messageAlert && messageText) {
-                        $('#contact-form').find('.messages').html(alertBox);
-                        $('#contact-form')[0].reset();
-                    }
-                }
-            });
-            return false;
-        }
-    });
+    var cf = document.getElementById('contact-form');
+    if (cf) {
+        cf.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var form = this;
+            var replyTo = form.querySelector('#form_email');
+            var replyToHidden = form.querySelector('#form_reply_to');
+            if (replyTo && replyToHidden) {
+                replyToHidden.value = replyTo.value;
+            }
+            var messages = form.querySelector('.messages') || document.querySelector('.messages');
+            if (typeof emailjs !== 'undefined') {
+                emailjs.sendForm('service_683oxui', 'template_u60td8f', form)
+                    .then(function () {
+                        if (messages) messages.innerHTML = '<div class="alert alert-success">Your message has been sent successfully!</div>';
+                        form.reset();
+                        setTimeout(function(){ location.reload(); }, 5000);
+                    }, function (error) {
+                        var reason = (error && (error.text || error.message)) ? (error.text || error.message) : 'Please try again.';
+                        if (messages) messages.innerHTML = '<div class="alert alert-danger">Failed to send message. ' + reason + '</div>';
+                        setTimeout(function(){ location.reload(); }, 5000);
+                    });
+            } else {
+                if (messages) messages.innerHTML = '<div class="alert alert-danger">Message service unavailable. Please try again later.</div>';
+            }
+        });
+    }
 
 });
+
+
+    /*
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        "service_8esay3h",
+        "template_u60td8f",
+        this
+    )
+    .then(() => {
+        // Show success alert in your .messages div
+        document.querySelector('.messages').innerHTML = 
+            '<div class="alert alert-success">Your message has been sent successfully!</div>';
+
+        // Reset the form
+        this.reset();
+    })
+    .catch((error) => {
+        console.error("EmailJS Error:", error);
+
+        document.querySelector('.messages').innerHTML = 
+            '<div class="alert alert-danger">Failed to send message. Please try again.</div>';
+    });
+});   */
 
 
 /* ===============================  Preloader page  =============================== */

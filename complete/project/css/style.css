@@ -2264,13 +2264,15 @@ color: black;
   .portfolio .gallery .items .item-img {
     overflow: hidden;
     position: relative;
-    height: 440px; }
+    height: 440px;
+   } 
     .portfolio .gallery .items .item-img > a {
       display: block; }
     .portfolio .gallery .items .item-img:hover .item-img-overlay {
-      opacity: 1;
+     
       visibility: visible; }
     .portfolio .gallery .items .item-img img {
+     
       height: 100%;
       width: 100%;
       -o-object-fit: cover;
@@ -3139,7 +3141,7 @@ color: black;
   
 }
 
-.crousel-track img:hover {
+.carousel-track img:hover {
   transform: scale(1.05);
   filter: grayscale(0%);
 }
@@ -3159,7 +3161,7 @@ color: black;
 
 /* Responsive tweak */
 @media (max-width: 768px) {
-  .logo-track img {
+  .carousel-track img {
     width: 150px;
     margin: 0 20px;
   }
